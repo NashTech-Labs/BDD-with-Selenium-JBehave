@@ -1,5 +1,4 @@
 package com.knoldus.Runner;
-
 import com.knoldus.StepDefinations.DemoSteps;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -8,13 +7,10 @@ import org.jbehave.core.junit.JUnitStories;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
-
 import java.util.Arrays;
 import java.util.List;
-
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
-
 public class DemoTest extends JUnitStories {
     @Override
     public Configuration configuration() {
@@ -24,17 +20,11 @@ public class DemoTest extends JUnitStories {
                         .withCodeLocation(codeLocationFromClass(this.getClass()))
                         .withFormats(CONSOLE));
     }
-
     @Override
     public InjectableStepsFactory stepsFactory() {
         return new InstanceStepsFactory(configuration(), new DemoSteps());
     }
-
     @Override
-//        protected List<String> storyPaths() {
-//            StoryFinder finder = new StoryFinder();
-//            return finder.findPaths(codeLocationFromClass(this.getClass()).getFile(), Collections.singletonList("**/*.story"), Arrays.asList(""));
-//        }
     protected List<String> storyPaths() {
         return Arrays.asList("Demo.story");
     }
